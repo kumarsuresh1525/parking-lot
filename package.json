@@ -1,0 +1,26 @@
+{
+  "name": "parking-lot",
+  "version": "1.0.0",
+  "description": "parking lot problem",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumarsuresh1525/parking-lot.git"
+  },
+  "keywords": [
+    "parking",
+    "lot"
+  ],
+  "author": "Suresh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumarsuresh1525/parking-lot/issues"
+  },
+  "homepage": "https://github.com/kumarsuresh1525/parking-lot#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
