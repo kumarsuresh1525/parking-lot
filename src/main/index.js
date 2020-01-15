@@ -54,6 +54,18 @@ class Solution {
       return 'Parking lot is Empty';
     }
   }
+
+  status() {
+    if (this.maxSize === 0) return 'Please Create Parking lot first';
+    if (this.carDetails.length > 0) {
+      console.log("Slot No.\tRegistration No.\tColor");
+      this.carDetails.forEach(car => {
+        console.log(car.slot + "\t         " + car.registratonNo + "\t         " + car.color);
+      });
+    } else {
+      return 'Parking lot is Empty';
+    }
+  }
 }
 
 module.exports = Solution;
