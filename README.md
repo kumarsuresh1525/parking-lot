@@ -17,3 +17,11 @@ To run the program without file name follow below steps:
 To exit from shell script enter "exit".
 
 
+Important terms:
+
+To commit the code following the standards.
+PL-000 [name] "message"
+
+PL- means Parking lot(Project name short form).
+000 - story number
+message - comment for story or progress over the story
