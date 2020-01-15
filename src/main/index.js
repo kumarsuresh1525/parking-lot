@@ -66,6 +66,42 @@ class Solution {
       return 'Parking lot is Empty';
     }
   }
+
+  getRegistrationNoFromColor(color) {
+    if (this.maxSize === 0) return 'Please Create Parking lot first';
+    const result = [];
+    this.carDetails.forEach((car) => {
+      if (car.color === color) {
+        result.push(car.registratonNo);
+      }
+    });
+    if (result.length === 0) return 'Not Found';
+    return result.join(',');
+  }
+
+  getSlotNumberFromColor(color) {
+    if (this.maxSize === 0) return 'Please Create Parking lot first';
+    const result = [];
+    this.carDetails.forEach((car) => {
+      if (car.color === color) {
+        result.push(car.slot);
+      }
+    });
+    if (result.length === 0) return 'Not Found';
+    return result.join(',');
+  }
+
+  getSlotNumberFromRegistrationNo(registratonNo) {
+    if (this.maxSize === 0) return 'Please Create Parking lot first';
+    const result = [];
+    this.carDetails.forEach((car) => {
+      if (car.registratonNo === registratonNo) {
+        result.push(car.slot);
+      }
+    });
+    if (result.length === 0) return 'Not Found';
+    return result.join(',');
+  }
 }
 
 module.exports = Solution;
