@@ -26,49 +26,49 @@ describe('Test for parking alotment', () => {
   it('Should able to alot parking for registration number KA-01-HH-1234', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-HH-1234', 'white');
-    const expected = 'Allocated slot number: 0';
+    const expected = 'Allocated slot number: 1';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able to alot parking for registration number KA-01-HH-9999', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-HH-9999', 'white');
-    const expected = 'Allocated slot number: 1';
+    const expected = 'Allocated slot number: 2';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able to alot parking for registration number KA-01-BB-0001', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-BB-0001', 'black');
-    const expected = 'Allocated slot number: 2';
+    const expected = 'Allocated slot number: 3';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able to alot parking for registration number KA-01-HH-2701', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-HH-2701', 'blue');
-    const expected = 'Allocated slot number: 3';
+    const expected = 'Allocated slot number: 4';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able to alot parking for registration number KA-01-HH-3141', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-HH-3141', 'black');
-    const expected = 'Allocated slot number: 4';
+    const expected = 'Allocated slot number: 5';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able to alot parking for registration number KA-01-HH-3142', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-HH-3142', 'black');
-    const expected = 'Allocated slot number: 5';
+    const expected = 'Allocated slot number: 6';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able to show parking full message if alotment exceed more than alotment', () => {
     parking.createParkingLot(6);
     const actual = parking.park('KA-01-HH-3143', 'black');
-    const expected = 'Sorry Parking is Full';
+    const expected = 'Sorry, parking lot is full';
     expect(actual).toStrictEqual(expected);
   });
 });
@@ -79,15 +79,15 @@ describe('Test for leave parking', () => {
     parking.createParkingLot(6);
     parking.park('KA-01-HH-3141', 'black');
     parking.park('KA-01-HH-3143', 'white');
-    const actual = parking.leaveParking(1);
-    const expected = 'Slot  numbmer 1 is free';
+    const actual = parking.leaveParking(2);
+    const expected = 'Slot  numbmer 2 is free';
     expect(actual).toStrictEqual(expected);
   });
 
   it('Should able show message if alotment is already free', () => {
     parking.park('KA-01-HH-3141', 'black');
-    const actual = parking.leaveParking(2);
-    const expected = 'Slot number 2 is already empty';
+    const actual = parking.leaveParking(3);
+    const expected = 'Slot number 3 is already empty';
     expect(actual).toStrictEqual(expected);
   });
 });
@@ -100,10 +100,10 @@ describe('Test to check status of parking', () => {
     parking.park('KA-01-HH-3143', 'white');
     const expected = [
       {
-        slot: 0, registratonNo: 'KA-01-HH-3141', color: 'black'
+        slot: 1, registratonNo: 'KA-01-HH-3141', color: 'black'
       },
       {
-        slot: 1, registratonNo: 'KA-01-HH-3143', color: 'white'
+        slot: 2, registratonNo: 'KA-01-HH-3143', color: 'white'
       }
     ];
     expect(parking.carDetails).toStrictEqual(expected);
@@ -118,7 +118,7 @@ describe('Test registration number', () => {
     parking.park('KA-01-HH-3143', 'white');
     parking.park('KA-01-HH-1234', 'white');
     const actual = parking.getRegistrationNoFromColor('white')
-    const expected = 'KA-01-HH-3143,KA-01-HH-1234';
+    const expected = 'KA-01-HH-3143, KA-01-HH-1234';
     expect(actual).toStrictEqual(expected);
   });
 
@@ -137,7 +137,7 @@ describe('Test slot number', () => {
     parking.park('KA-01-HH-3143', 'white');
     parking.park('KA-01-HH-1234', 'white');
     const actual = parking.getSlotNumberFromColor('white')
-    const expected = '1,2';
+    const expected = '2, 3';
     expect(actual).toStrictEqual(expected);
   });
 
@@ -156,7 +156,7 @@ describe('Test slot number', () => {
     parking.park('KA-01-HH-3143', 'white');
     parking.park('KA-01-HH-1234', 'white');
     const actual = parking.getSlotNumberFromColor('white')
-    const expected = '1,2';
+    const expected = '2, 3';
     expect(actual).toStrictEqual(expected);
   });
 
@@ -175,7 +175,7 @@ describe('Test slot number from registration number', () => {
     parking.park('KA-01-HH-3143', 'white');
     parking.park('KA-01-HH-1234', 'white');
     const actual = parking.getSlotNumberFromRegistrationNo('KA-01-HH-3143')
-    const expected = '1';
+    const expected = '2';
     expect(actual).toStrictEqual(expected);
   });
 

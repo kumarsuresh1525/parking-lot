@@ -14,7 +14,7 @@ class Solution {
     try {
       if (isNaN(noOfLot)) throw new Error('Value should be number')
       this.maxSize = parseInt(noOfLot);
-      for (let i = 0; i < this.maxSize; i++) {
+      for (let i = 1; i <= this.maxSize; i++) {
         this.availableSlots.push(i);
       }
       return `Created a parking lot with ${this.availableSlots.length} slots`;
@@ -25,7 +25,7 @@ class Solution {
 
   park(registratonNo, color) {
     if (this.maxSize === 0) return 'Please Create Parking lot first';
-    if (this.maxSize === this.carDetails.length) return 'Sorry Parking is Full';
+    if (this.maxSize === this.carDetails.length) return 'Sorry, parking lot is full';
     const lot = {
       slot: this.availableSlots[0],
       registratonNo,
@@ -60,7 +60,7 @@ class Solution {
     if (this.carDetails.length > 0) {
       console.log("Slot No.\tRegistration No.\tColor");
       this.carDetails.forEach(car => {
-        console.log(car.slot + "\t         " + car.registratonNo + "\t         " + car.color);
+        console.log(car.slot + "\t        " + car.registratonNo + "\t        " + car.color);
       });
     } else {
       return 'Parking lot is Empty';
@@ -76,7 +76,7 @@ class Solution {
       }
     });
     if (result.length === 0) return 'Not Found';
-    return result.join(',');
+    return result.join(', ');
   }
 
   getSlotNumberFromColor(color) {
@@ -88,7 +88,7 @@ class Solution {
       }
     });
     if (result.length === 0) return 'Not Found';
-    return result.join(',');
+    return result.join(', ');
   }
 
   getSlotNumberFromRegistrationNo(registratonNo) {
@@ -100,7 +100,7 @@ class Solution {
       }
     });
     if (result.length === 0) return 'Not Found';
-    return result.join(',');
+    return result.join(', ');
   }
 }
 
