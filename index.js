@@ -1,8 +1,19 @@
 const readline = require('readline');
+const fs = require('fs');
 const Parking = require('./src/main');
 const parking = new Parking();
+
+const args = process.argv.slice(2);
+let input = process.stdin;
+if (args.length > 0) {
+  input = fs.createReadStream(args[0]);
+  input.on('error', function(error) {
+    console.log("Please entter valid path");
+  })
+}
+
 const rl = readline.createInterface({
-  input: process.stdin,
+  input: input,
   output: process.stdout
 });
 
